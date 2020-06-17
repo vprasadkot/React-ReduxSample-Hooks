@@ -1,3 +1,6 @@
+import { increment, decrement, reset } from "./actions";
+import actionTypes from "./actionTypes";
+
 const initialState = {
   counter: 0
 };
@@ -7,21 +10,21 @@ const reducer = (state = initialState, actionType) => {
       return {
         ...state
       };
-    case "INCREMENT":
+    case actionTypes.INCREMENT:
       console.log("STATE ", state);
       return {
         ...state,
-        counter: state.counter + 1
+        counter: increment(state.counter)
       };
-    case "DECREMENT":
+    case actionTypes.DECREMENT:
       return {
         ...state,
-        counter: state.counter - 1
+        counter: decrement(state.counter)
       };
-    case "RESET":
+    case actionTypes.RESET:
       return {
         ...state,
-        counter: 0
+        counter: reset(state.counter)
       };
     default:
       return {
