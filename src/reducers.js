@@ -11,7 +11,6 @@ const reducer = (state = initialState, actionType) => {
         ...state
       };
     case actionTypes.INCREMENT:
-      console.log("STATE ", state);
       return {
         ...state,
         counter: increment(state.counter)
